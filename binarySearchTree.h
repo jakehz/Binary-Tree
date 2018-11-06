@@ -77,18 +77,18 @@ void bSearchTreeType<elemType>::insert(const elemType& insertItem)
 	binaryTreeNode<elemType> *current;  //pointer to traverse the tree
 	binaryTreeNode<elemType> *trailCurrent; //pointer behind current
 	binaryTreeNode<elemType> *newNode;  //pointer to create the node
-
+	trailCurrent = NULL;
 	newNode = new binaryTreeNode<elemType>;
 	assert(newNode != NULL);
 	newNode->info = insertItem;
 	newNode->llink = NULL;
 	newNode->rlink = NULL;
 
-	if (root == NULL)
-		root = newNode;
+	if (this->root == NULL)
+		this->root = newNode;
 	else
 	{
-		current = root;
+		current = this->root;
 
 		while (current != NULL)
 		{
@@ -107,10 +107,10 @@ void bSearchTreeType<elemType>::insert(const elemType& insertItem)
 				current = current->rlink;
 		}//end while
 
-		if (trailCurrent->info > insertItem)
-			trailCurrent->llink = newNode;
-		else
-			trailCurrent->rlink = newNode;
+			if (trailCurrent->info > insertItem)
+				trailCurrent->llink = newNode;
+			else
+				trailCurrent->rlink = newNode;
 	}
 }//end insert
 

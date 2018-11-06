@@ -34,7 +34,7 @@ int main()
 	cout << "The number of nodes is " << mySearchTree.treeNodeCount() << endl;
 
 	cout << "The number of leaves is " << mySearchTree.treeLeavesCount() << endl;
-
+	system("PAUSE");
 
 
 }

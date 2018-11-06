@@ -294,10 +294,25 @@ int binaryTreeType<elemType>::max(int x, int y) const
 template <class elemType>
 int binaryTreeType<elemType>::leavesCount(binaryTreeNode<elemType> *p) const
 {
-	cout << "Write the definition of the function leavesCount"
-		<< endl;
-
-	return 0;
+	static int leaf_count = 0;
+	// BASE/ENDCASE RECURSION
+	// if the current pointer passed is NULL, then it has reached the end of tree.
+	// then it will end the function.
+	if (p == NULL)
+	{
+		return leaf_count;
+	}
+	// go on to the left node to see if it exists should be counted.
+	if (p->llink == NULL && p->rlink == NULL)
+	{
+		leaf_count++;
+	}
+	leavesCount(p->llink);
+	leavesCount(p->rlink);
+	// go on to the right node to see if it exists and should be counted. 
+	// finally, return the count of all the nodes. 
+	return leaf_count;
 }
+
 
 #endif
